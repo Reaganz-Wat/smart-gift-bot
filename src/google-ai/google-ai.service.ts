@@ -11,7 +11,7 @@ export class GoogleAiService {
     private model: "gemini-pro";
 
 
-    constructor(apiKey: string) {
+    constructor() {
         this.genAI = new GoogleGenerativeAI(process.env.API_KEY || "");
     }
 
