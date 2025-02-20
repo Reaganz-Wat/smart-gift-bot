@@ -1,8 +1,7 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import * as dotenv from 'dotenv';
+import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -17,7 +16,7 @@ async function bootstrap() {
 
   const config = new DocumentBuilder()
   .setTitle('API Documentation')
-  .setDescription('API documentation for the brunette production management system')
+  .setDescription('API documentation for Smart Gift Bot')
   .setVersion('1.0')
   .addBearerAuth() // Add this if your app uses JWT for auth
   .build();
@@ -26,7 +25,7 @@ async function bootstrap() {
 const document = SwaggerModule.createDocument(app, config);
 
 // Set up Swagger at /api endpoint
-SwaggerModule.setup('api', app, document);
+SwaggerModule.setup('docs', app, document);
 
   await app.listen(process.env.PORT || 3000);
 }
