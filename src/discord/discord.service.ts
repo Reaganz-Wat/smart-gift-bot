@@ -14,10 +14,10 @@ export class DiscordService {
       };
 
       const response = await axios.post(this.webhookUrl, payload);
-      console.log("Sent to discord 👍👍👍👍")
+      console.log("Sent to discord 👍👍👍👍", response.data);
       return response.data;
     } catch (error) {
-      console.error('Error sending message to Discord:', error);
+      // console.error('Error sending message to Discord:', error);
       throw error;
     }
   }

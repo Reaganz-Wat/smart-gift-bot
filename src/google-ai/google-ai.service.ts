@@ -33,8 +33,7 @@ export class GoogleAiService {
       return recommendations.map((gift, index) => `${index + 1}. ${gift}`).join('\n');
     } catch (error) {
       console.error('Google AI API Error:', error);
-      return "Sorry, I couldn't generate recommendations at the moment.";
+      return "Sorry, I couldn't generate any gift recommendations."; // Updated error message
     }
   }
-  
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { GoogleAiService } from 'src/google-ai/google-ai.service';
+import { GoogleAiService } from '../google-ai/google-ai.service';
 
 @Injectable()
 export class RecommendationService {
@@ -38,8 +38,10 @@ export class RecommendationService {
 
       return recommendations;
     } catch (error) {
-      console.error('Error generating recommendations:', error);
+      // this.logger.error('Error generating recommendations:', error);
       return ["Sorry, I couldn't generate recommendations at the moment."];
+      // console.error('Error generating recommendations:', error);
+      // return ["Sorry, I couldn't generate recommendations at the moment."];
     }
   }
 }
