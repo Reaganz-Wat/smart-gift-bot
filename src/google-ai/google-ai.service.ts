@@ -14,24 +14,27 @@ export class GoogleAiService {
   }
 
   // Method for generating gift recommendations from the user's free-form message
-  async getGiftRecommendationsFromPrompt(prompt: string): Promise<string[]> {
+  async getGiftRecommendationsFromPrompt(prompt: string): Promise<string> {
     try {
       const model = this.genAI.getGenerativeModel({ model: this.model });
       const result = await model.generateContent(prompt);
       const response = result.response.text();
-
+  
       // Handle case where the response might be empty or malformed
       const recommendations = response
         .split('\n')
         .filter((gift) => gift.trim() !== '');
+  
       if (recommendations.length === 0) {
-        return ["Sorry, I couldn't generate any gift recommendations."];
+        return "Sorry, I couldn't generate any gift recommendations.";
       }
-
-      return recommendations;
+  
+      // Format recommendations into a numbered list
+      return recommendations.map((gift, index) => `${index + 1}. ${gift}`).join('\n');
     } catch (error) {
       console.error('Google AI API Error:', error);
-      return ["Sorry, I couldn't generate recommendations at the moment."];
+      return "Sorry, I couldn't generate recommendations at the moment.";
     }
   }
+  
 }
