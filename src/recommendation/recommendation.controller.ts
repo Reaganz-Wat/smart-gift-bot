@@ -3,10 +3,15 @@ import { RecommendationService } from './recommendation.service';
 import { smartGiftBotConfig } from 'src/integrationSpecFile';
 import { log } from 'console';
 import { TelexMessageDto } from './gift-input-dto';
+import { EmbedBuilder } from 'discord.js';
+import { DiscordService } from 'src/discord/discord.service';
 
 @Controller('recommendation')
 export class RecommendationController {
-  constructor(private recommendationsService: RecommendationService) {}
+  constructor(
+    private recommendationsService: RecommendationService,
+    private discordService: DiscordService,
+  ) {}
 
   @Get('/integration-specs')
   getIntegrationSpecFile() {
@@ -18,17 +23,36 @@ export class RecommendationController {
     const cleanMessage = body.message.replace(/<[^>]*>?/gm, '');
     log('Clean message: ', cleanMessage);
 
+    const content = 'Hello, Discord!';
+    const title = 'Gift Bot';
+    const description = cleanMessage;
+    const color = '#FF0000'; // Optional, default is green
+
+    // const embed = new EmbedBuilder()
+    //   .setTitle(title)
+    //   .setDescription(description)
+    //   .setColor(color ? parseInt(color.replace('#', '0x'), 16) : 0x00ff00); // Default to green if no color is provided
+
+    // return this.discordService.sendMessage(content, embed);
+
     try {
       // Generate recommendations based on the user's message
       const recommendations =
         await this.recommendationsService.generateRecommendations(cleanMessage);
 
-        log(`Gift recommendations: ${JSON.stringify(recommendations)}`);
+      log(`Gift recommendations: ${JSON.stringify(recommendations)}`);
 
-      return {
-        status: 'success',
-        message: `Gift recommendations: ${JSON.stringify(recommendations)}`,
-      };
+      // return {
+      //   status: 'success',
+      //   message: `Gift recommendations: ${JSON.stringify(recommendations)}`,
+      // };
+
+      const embed = new EmbedBuilder()
+        .setTitle(title)
+        .setDescription(description)
+        .setColor(color ? parseInt(color.replace('#', '0x'), 16) : 0x00ff00); // Default to green if no color is provided
+
+      return this.discordService.sendMessage(content, embed);
     } catch (error) {
       log('Error generating recommendations:', error);
       return {
