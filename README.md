@@ -126,9 +126,13 @@ yarn test:cov
 
 
 ## Screenshots
+### Telex prompts
 ![Telex Prompt](./src/assets/telex%20gift%20prompt.png)
+*Telext prompts*
+
+### Discord channel responses
 ![Discord Response](./src/assets/discord%20git%20bot.png)
-*Screenshots for Telext prompts and gift bot response on discord channel using webhook*
+*Discord channel response with gift recommendations*
 
 ## Contributing
 We welcome contributions! Please follow these steps:
