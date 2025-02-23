@@ -16,7 +16,7 @@ export class RecommendationService {
     or unusual interests. Respond with gift recommendations only.
 
     Key Areas to Focus On:
-    1. **Budget**: Identify if the user specifies a budget range (e.g., "under $50" or "affordable").
+    1. **Budget**: Identify if the user specifies a budget range (e.g.,"within range", "affordable").
     2. **Interests**: Extract hobbies, passions, or preferences mentioned (e.g., "loves cooking," "into gaming," "enjoys outdoor activities").
     3. **Recipient Details**: Note age, gender, or relationship (e.g., "for my 10-year-old nephew," "for my wife").
     4. **Occasion**: Identify if the gift is for a specific event (e.g., birthday, anniversary, holiday).

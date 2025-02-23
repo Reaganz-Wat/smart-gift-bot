@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { DiscordModule } from 'src/discord/discord.module';
-import { GoogleAiModule } from 'src/google-ai/google-ai.module';
+import { DiscordModule } from '../discord/discord.module';
+import { GoogleAiModule } from '../google-ai/google-ai.module';
 import { RecommendationController } from './recommendation.controller';
 import { RecommendationService } from './recommendation.service';
 
