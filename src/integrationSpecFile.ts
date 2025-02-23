@@ -56,18 +56,19 @@ export const smartGiftBotConfig = {
     ],
     endpoints: [
       {
-        path: '/webhook',
+        path: '/webhooks',
         method: 'POST',
-        description: 'Receives the gift recommendation request and returns the AI-generated suggestions',
+        description: 'Used to send the messages from Telex channel',
       },
       {
-        path: '/health',
+        path: '/integration-specs',
         method: 'GET',
-        description: 'Health check endpoint',
+        description: 'Gets integration settings',
       },
     ],
     is_active: true,
-    author: 'Your Name',
+    tick_url: '',
+    author: 'Reagan Watmon',
     version: '1.0.0',
   },
 }
