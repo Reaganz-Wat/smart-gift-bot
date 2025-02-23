@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { GoogleAiService } from '../google-ai/google-ai.service';
+import axios from 'axios';
+import { log } from 'console';
 
 @Injectable()
 export class RecommendationService {
@@ -42,6 +44,20 @@ export class RecommendationService {
       return ["Sorry, I couldn't generate recommendations at the moment."];
       // console.error('Error generating recommendations:', error);
       // return ["Sorry, I couldn't generate recommendations at the moment."];
+    }
+  }
+
+  async sendMessage(message: string): Promise<boolean> {
+    try {
+      const response = await axios.post(process.env.TELEX_WEBHOOK_URL as string, {
+        message: message
+      });
+
+      log('Message sent to Telex:', response.status);
+      return true;
+    } catch (error) {
+      log('Error sending message to Telex:', error.message);
+      return false;
     }
   }
 }

@@ -1,4 +1,4 @@
-const url = 'https://smart-gift-bot.onrender.com/recommendation';
+const url = 'https://f7xjdx7g-8000.eun1.devtunnels.ms/recommendation';
 
 export const smartGiftBotConfig = {
   data: {
