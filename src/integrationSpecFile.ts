@@ -1,4 +1,4 @@
-const url = 'https://smart-gift-bot.onrender.com/recommendation'
+const url = 'https://smart-gift-bot.onrender.com/recommendation';
 
 export const smartGiftBotConfig = {
   data: {
@@ -10,13 +10,23 @@ export const smartGiftBotConfig = {
     integration_type: 'output',
     descriptions: {
       app_name: 'Smart Gift Bot',
-      app_description: 
-        'An AI-powered assistant that recommends the perfect gift based on age, budget, and interests using OpenAI API.',
+      app_description: 'An AI-powered assistant that recommends the perfect gift based on age, budget, and interests using OpenAI API.',
       app_logo: 'https://iili.io/Jcshqe2.md.webp',
       app_url: url,
-      background_color: '#F4A300', // Bright color for a gift-related app
+      background_color: '#F4A300',
     },
     target_url: `${url}/webhooks`,
+    // Add output configuration to specify channels
+    output: [
+      {
+        label: "general",
+        value: true
+      },
+      {
+        label: "other_channels",
+        value: false
+      }
+    ],
     key_features: [
       'Personalized gift recommendations based on age, budget, and interests',
       'AI-driven suggestions powered by OpenAI API',
@@ -41,18 +51,18 @@ export const smartGiftBotConfig = {
       {
         label: 'Interests',
         type: 'text',
-        description: 'User’s interests (e.g., gaming, technology, art)',
+        description: 'Users interests (e.g., gaming, technology, art)',
         default: 'gaming',
         required: true,
       },
       {
         label: 'Notification Type',
-        type: 'radio',
+        type: 'dropdown', // Changed from radio to dropdown as per spec
         description: 'Preferred method of receiving the recommendation',
         options: ['Discord', 'Email'],
         default: 'Discord',
         required: true,
-      },
+      }
     ],
     endpoints: [
       {
@@ -64,7 +74,7 @@ export const smartGiftBotConfig = {
         path: '/integration-specs',
         method: 'GET',
         description: 'Gets integration settings',
-      },
+      }
     ],
     is_active: true,
     tick_url: '',
