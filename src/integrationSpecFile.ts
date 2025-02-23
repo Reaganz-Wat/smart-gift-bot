@@ -1,4 +1,4 @@
-const url = 'https://smart-gift-bot-git-main-reaganz-wats-projects.vercel.app/recommendation'
+const url = 'smart-gift-3tf0e4ofi-reaganz-wats-projects.vercel.app/recommendation'
 
 export const smartGiftBotConfig = {
   data: {
