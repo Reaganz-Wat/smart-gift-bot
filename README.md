@@ -7,12 +7,19 @@ The **Smart Gift Recommendation Bot** is an AI-powered Telex integration that he
 2. [Features](#features)
 3. [Requirements](#requirements)
 4. [Setup](#setup)
+   - [Basic Setup](#basic-setup)
+   - [Discord Bot Setup](#discord-bot-setup)
+   - [Environment Configuration](#environment-configuration)
 5. [Testing](#testing)
-6. [Deployment](#deployment)
-7. [Usage](#usage)
-8. [Screenshots](#screenshots)
-9. [Contributing](#contributing)
-10. [License](#license)
+6. [Usage](#usage)
+7. [Security Best Practices](#security-best-practices)
+8. [Monitoring and Maintenance](#monitoring-and-maintenance)
+9. [Troubleshooting](#troubleshooting)
+10. [Screenshots](#screenshots)
+11. [Contributing](#contributing)
+12. [License](#license)
+13. [Support](#support)
+14. [Acknowledgments](#acknowledgments)
 
 ## Overview
 This integration is an **Output Integration** that routes data from a Telex channel to an external service (Discord). When a user sends a message in a Telex channel, the bot processes the input (age, budget, and interests) using the OpenAI API and sends the generated gift recommendation to a Discord channel via a webhook.
@@ -36,12 +43,12 @@ To run this integration, you need:
 - yarn package manager
 
 ## Setup
-Follow these steps to set up the Smart Gift Recommendation Bot:
 
+### Basic Setup
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/telex_integrations/smart-gift-recommendation-bot.git
-   cd smart-gift-recommendation-bot
+   git clone https://github.com/Reaganz-Wat/smart-gift-bot.git
+   cd smart-gift-bot
    ```
 
 2. **Install Dependencies**:
@@ -51,8 +58,29 @@ Follow these steps to set up the Smart Gift Recommendation Bot:
    yarn install
    ```
 
-3. **Configure Environment Variables**:
-   Create a `.env` file in the root directory and add:
+### Joining the Discord Server
+
+To start receiving gift recommendations, simply join our Discord server using the link below:
+
+[Join Smart Gift Bot Discord Server](https://discord.gg/5AHNNAYc)
+
+#### What to Expect After Joining:
+1. You'll have immediate access to the gift recommendations channel
+2. All recommendations will appear in real-time
+3. You can interact with other community members
+4. Get notifications for new gift suggestions
+
+#### Channel Structure:
+- #gift-recommendations: Main channel for bot recommendations
+- #general: Community discussions
+- #support: Get help with using the bot
+- #announcements: Updates and new features
+
+Note: The invite link is permanent and can be shared with others who might find the gift recommendations useful.
+
+### Environment Configuration
+1. Create a `.env` file in the root directory
+2. Add the following configuration:
    ```env
    # OpenAI Configuration
    API_KEY=your_openai_api_key
@@ -62,17 +90,16 @@ Follow these steps to set up the Smart Gift Recommendation Bot:
 
    # Server Configuration
    PORT=8000
-
    ```
 
-4. **Build the Application**:
+3. **Build the Application**:
    ```bash
    npm run build
    # or using yarn
    yarn build
    ```
 
-5. **Start the Server**:
+4. **Start the Server**:
    ```bash
    npm run start
    # or using yarn
@@ -80,38 +107,27 @@ Follow these steps to set up the Smart Gift Recommendation Bot:
    ```
 
 ## Testing
-Ensure your application works correctly by running the test suite:
+1. **Run the Test Suite**:
+   ```bash
+   # unit tests
+   yarn run test
 
-```bash
-# unit tests
-yarn run test
+   # e2e tests
+   yarn run test:e2e
 
-# e2e tests
-yarn run test:e2e
+   # test coverage
+   yarn test:cov
+   ```
 
-# test coverage
-yarn test:cov
-```
-
-## Deployment
-1. **Prepare for Production**:
-   - Update environment variables for production
-   - Build the application using `yarn run build`
-   - Ensure all dependencies are properly listed in `package.json`
-
-2. **Deploy to Your Server**:
-   - Choose a hosting platform (e.g., Heroku, AWS, DigitalOcean)
-   - Set up environment variables on your hosting platform
-   - Configure your domain and SSL certificate
-   - Set up monitoring and logging
-
-3. **Continuous Integration**:
-   - Set up GitHub Actions for automated testing
-   - Configure deployment pipelines
-   - Set up monitoring alerts
+2. **Test Webhook Integration**:
+   ```bash
+   curl -X POST -H "Content-Type: application/json" \
+   -d '{"content": "My age is 5, I like reading books and my budget is $30"}' \
+   https://smart-gift-bot.onrender.com/recommendation/webhooks
+   ```
 
 ## Usage
-1. **Send a Message Format**:
+1. **Message Format**:
    ```json
    {
      "age": 25,
@@ -124,11 +140,10 @@ yarn test:cov
    - GET `/recommendation/integration-specs`: Gets the integrations specs settings
    - POST `/recommendation/webhooks`: Sending gift recommendations messages to openai
 
-
 ## Screenshots
 ### Telex prompts
 ![Telex Prompt](./src/assets/telex%20gift%20prompt.png)
-*Telext prompts*
+*Telex prompts*
 
 ### Discord channel responses
 ![Discord Response](./src/assets/discord%20git%20bot.png)
@@ -159,11 +174,21 @@ For support, please:
 - Open an issue on GitHub
 - Contact the Telex support team
 - Check the [documentation](docs/README.md)
+- Join our [Discord community](https://discord.gg/your-community)
+
+### Additional Resources
+- [Discord Developer Documentation](https://discord.com/developers/docs)
+- [Discord Webhooks Guide](https://discord.com/developers/docs/resources/webhook)
+- [Discord Developer Terms of Service](https://discord.com/developers/docs/policies-and-agreements/developer-terms-of-service)
+- [Discord Rate Limits](https://discord.com/developers/docs/topics/rate-limits)
+- [OpenAI API Documentation](https://platform.openai.com/docs/api-reference)
+- [NestJS Documentation](https://docs.nestjs.com/)
 
 ## Acknowledgments
 - OpenAI for providing the GPT API
 - Discord for webhook integration
 - Telex platform team for the integration framework
+- All contributors who have helped improve this project
 
 ---
-Made with ❤️ by Your Reagan Wat
+Made with ❤️ by Reagan Wat
