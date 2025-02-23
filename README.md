@@ -70,12 +70,6 @@ To start receiving gift recommendations, simply join our Discord server using th
 3. You can interact with other community members
 4. Get notifications for new gift suggestions
 
-#### Channel Structure:
-- #gift-recommendations: Main channel for bot recommendations
-- #general: Community discussions
-- #support: Get help with using the bot
-- #announcements: Updates and new features
-
 Note: The invite link is permanent and can be shared with others who might find the gift recommendations useful.
 
 ### Environment Configuration
