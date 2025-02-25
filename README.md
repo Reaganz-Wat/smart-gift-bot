@@ -70,7 +70,23 @@ To start receiving gift recommendations, simply join our Discord server using th
 3. You can interact with other community members
 4. Get notifications for new gift suggestions
 
+### How to Join the Smart Gift Bot Discord Server:
+1. Click on the invite link: [Join Smart Gift Bot Discord Server](https://discord.gg/5AHNNAYc)
+2. If you don’t have a Discord account, sign up and log in.
+3. After logging in, you will see a prompt to join the server.
+4. Click **Join Server** to become a member.
+5. If you don’t see the prompt, follow these steps manually:
+   - Open your Discord application.
+   - Click on the **+** button on the left sidebar to **Create or Join a Server**.
+   - Select **Join a Server**.
+   - Paste the invite link (**https://discord.gg/5AHNNAYc**) into the input box.
+   - Click **Join** to access the Smart Gift Bot community.
+
+Now you’re all set! You will receive real-time gift recommendations and can interact with other community members.
+
 Note: The invite link is permanent and can be shared with others who might find the gift recommendations useful.
+
+
 
 ### Environment Configuration
 1. Create a `.env` file in the root directory
